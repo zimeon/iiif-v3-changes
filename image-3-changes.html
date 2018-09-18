@@ -88,6 +88,7 @@ class: center, middle
 
 Simeon Warner (Cornell University)
 
+Revised version of slides first presented at
 [2018 IIIF Conference](http://iiif.io/event/2018/washington/), Washington, DC. 2018-05-24
 
 ![Washington Conference Logo](http://iiif.io/img/washington_logo.png)
@@ -147,6 +148,30 @@ with above `sizes` the the canonical request for this preferred size is:
 ```]
 
 .refs[(issues [#544](https://github.com/IIIF/api/issues/544) and [#678](https://github.com/IIIF/api/issues/678))]
+
+---
+
+## ... and canonical form of size parameter affects tile requests
+
+Consider the request for a 512 by 512 tile from a 1024 by 1024 region of an image:
+
+.v211[``` bash
+.../img123/1024,2048,1024,1024/512,/0/default.jpg
+```]
+
+.v30[``` bash
+.../img123/1024,2048,1024,1024/512,512/0/default.jpg
+```]
+
+or tile at the right edge (where full size is 5000 pixels wide):
+
+.v211[``` bash
+.../img123/4096,2048,14,1024/7,/0/default.jpg
+```]
+
+.v30[``` bash
+.../img123/4096,2048,14,1024/7,512/0/default.jpg
+```]
 
 ---
 
